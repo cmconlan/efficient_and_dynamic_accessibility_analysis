@@ -217,6 +217,12 @@ def extract_headers(csv_file):
         return next(reader)
     
 
+host = 'localhost'
+port = 8080
+processes = 10
+otps = 3
+
+
 # Get Time Stamps / Time Interval
 
 stratumDict = {
@@ -326,13 +332,6 @@ for oind, orow in oaSample.iterrows():
             row = [trip_id,trip_date,t,orow['oa_lat'], orow['oa_lon'],prow['poi_lat'], prow['poi_lon']]
             writer.writerow(row)
             trip_id += 1
-
-
-
-host = 'localhost'
-port = 8080
-processes = 4
-otps = 1
 
 num_trips = num_rows(temp_trips_file)
 step_size = get_step_size(num_trips, processes)
