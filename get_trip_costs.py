@@ -219,7 +219,7 @@ def extract_headers(csv_file):
 
 host = 'localhost'
 port = 8080
-processes = 15
+processes = 12
 otps = 3
 
 
