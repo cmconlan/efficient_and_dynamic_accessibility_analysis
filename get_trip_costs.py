@@ -219,7 +219,7 @@ def extract_headers(csv_file):
 
 host = 'localhost'
 port = 8080
-processes = 10
+processes = 15
 otps = 3
 
 
@@ -319,7 +319,7 @@ for i in range(50):
 temp_trips_file = 'tempdata/trips_to_route.csv'
 output_file = open(temp_trips_file, 'w')
 writer = csv.writer(output_file)
-writer.writerow(['trip_id','date','time','oa_lat','oa_lon','poi_lat','poi_lon'])
+writer.writerow(['oa_id','poi_id','trip_id','date','time','oa_lat','oa_lon','poi_lat','poi_lon'])
 
 #Output trips dataset - output csv with following: 
 trip_id = 0
@@ -329,7 +329,7 @@ trip_date = study_date[0].strftime('%Y-%m-%d')
 for oind, orow in oaSample.iterrows():
     for pind,prow in POISample.iterrows():
         for t in timeDomain:            
-            row = [trip_id,trip_date,t,orow['oa_lat'], orow['oa_lon'],prow['poi_lat'], prow['poi_lon']]
+            row = [orow['oa_id'],prow['poi_id'],trip_id,trip_date,t,orow['oa_lat'], orow['oa_lon'],prow['poi_lat'], prow['poi_lon']]
             writer.writerow(row)
             trip_id += 1
 
