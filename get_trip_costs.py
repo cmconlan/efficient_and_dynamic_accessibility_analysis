@@ -220,7 +220,7 @@ def extract_headers(csv_file):
 host = 'localhost'
 port = 8080
 processes = 12
-otps = 3
+otps = 2
 
 
 # Get Time Stamps / Time Interval
