@@ -128,6 +128,7 @@ def main():
     for i in range(num_iterations):
         performance[i] = {}
         processing_times[i] = {}
+        exp_meta_data[i] = {}
         for k in list(stratumDict.keys()):
             performance[i][k] = {}
             processing_times[i][k] = {}
