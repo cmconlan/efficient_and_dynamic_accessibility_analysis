@@ -495,9 +495,9 @@ def main():
             # Get flow
             # Cluster flows
 
-            minflows = [3,5,7]
-            minclusters = [5,10,15]
-            minsamples = [5,10,15]
+            minflows = [5,7]
+            minclusters = [5,15]
+            minsamples = [5,15]
 
             for mf in minflows:
                 t0 = time.time()
@@ -620,14 +620,14 @@ def main():
             for f in files:
                 os.remove(f)
 
-    with open('results/performance.pkl', 'wb') as f:
-        pickle.dump(performance, f)
+            with open('results/performance.pkl', 'wb') as f:
+                pickle.dump(performance, f)
 
-    with open('results/processing_times.pkl', 'wb') as f:
-        pickle.dump(processing_times, f)
+            with open('results/processing_times.pkl', 'wb') as f:
+                pickle.dump(processing_times, f)
 
-    with open('results/exp_meta_data.pkl', 'wb') as f:
-        pickle.dump(exp_meta_data, f)
+            with open('results/exp_meta_data.pkl', 'wb') as f:
+                pickle.dump(exp_meta_data, f)
 
 if __name__ == "__main__":
     main()

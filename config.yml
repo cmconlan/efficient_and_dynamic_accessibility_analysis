@@ -4,7 +4,7 @@ temp_resolution: 5
 num_iterations: 10
 num_oas: 5
 num_pois: 50
-processes: 2
-otps: 1
+processes: 15
+otps: 3
 host: 'localhost'
 port: 8080
