@@ -251,6 +251,12 @@ def main():
                         reader = csv.DictReader(f)
                         for line in reader:
                             output_csv.writerow(line.values())
+                        
+                        
+            #Delete all file in tempdata
+            files = glob.glob('tempdata/*')
+            for f in files:
+                os.remove(f)
 
             with open('results/exp_meta_data.pkl', 'wb') as f:
                 pickle.dump(exp_meta_data, f)
