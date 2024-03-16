@@ -182,7 +182,7 @@ def main():
 
             # Output trips to CSV
 
-            temp_trips_file = 'tempdata/trips_to_route.csv'
+            temp_trips_file = 'tempdata/trips_to_route_{}_{}.csv'.format(it,stratum)
             output_file = open(temp_trips_file, 'w')
             writer = csv.writer(output_file)
             writer.writerow(['oa_id','poi_id','trip_id','date','time','oa_lat','oa_lon','poi_lat','poi_lon'])
@@ -254,7 +254,7 @@ def main():
                         
                         
             #Delete all file in tempdata
-            files = glob.glob('tempdata/*')
+            files = glob.glob('tempdata/temp_*')
             for f in files:
                 os.remove(f)
 
