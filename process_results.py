@@ -123,8 +123,8 @@ for it in range(num_iterations):
     for stratum in stratumDict.keys():
         print('NEXT ITERATION : {}'.format(it))
         print('Stratum : {}'.format(stratum))
-        initial_trips = pd.read_csv('tempdata/trips_samples/trips_to_route_{}_{}.csv'.format(it,stratum)).set_index('trip_id')
-        trips = pd.read_csv('tempdata/trips_samples/results_full_{}_{}.csv'.format(it,stratum)).set_index('trip_id')
+        initial_trips = pd.read_csv('tempdata/trips_to_route_{}_{}.csv'.format(it,stratum)).set_index('trip_id')
+        trips = pd.read_csv('tempdata/results_full_{}_{}.csv'.format(it,stratum)).set_index('trip_id')
         trips = trips.merge(initial_trips[['poi_id','oa_id','time']],right_index=True, left_index=True)
 
         #Sample 200 random zones
