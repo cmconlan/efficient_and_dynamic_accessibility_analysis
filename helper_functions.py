@@ -79,4 +79,3 @@ def get_flow_dist_mx(oaSample,POISample,minflows,flowProx):
 
     lst_reshaped = np.array(core_distances).reshape((len(core_distances), 1))
     return np.concatenate((X, lst_reshaped), axis=1), o_index, d_index, flows, flows_index
-
