@@ -119,7 +119,7 @@ for area_lad in ['E08000025','E08000026']:
         pois = pd.read_csv('data/POIs/pois_cov.csv', index_col=0)
     trip_oas = oa_info[oa_info['oa_id'].isin(list(wm_oas[wm_oas['LAD11CD'] == area_lad]['OA11CD']))]
 
-    for p_type in ['School','GP Surgery','Vaccination Centre','Hospital','Job Centre']:
+    for p_type in ['Hospital','School','GP Surgery','Vaccination Centre','Job Centre']:
         trip_pois = pois[pois['type'] == p_type]
         for stratum in ['wdam','wdpm','sat','bh']:
             num_trips_odt = 0
