@@ -130,6 +130,15 @@ for area_lad in ['E08000025','E08000026']:
             next_exp_meta['poi_type'] = p_type
             next_exp_meta['poi_type'] = stratum
 
+            # Generate
+            # Output trips to CSV
+            temp_trips_file = 'tempdata/trips_to_route_{}_{}_{}.csv'.format(area_lad,p_type,stratum)
+            output_file = open(temp_trips_file, 'w')
+            writer = csv.writer(output_file)
+            writer.writerow(['oa_id','poi_id','trip_id','date','time','oa_lat','oa_lon','poi_lat','poi_lon'])
+            #Output trips dataset - output csv with following: 
+            trip_id = 0
+
             for it in range(5):
 
                 print()
@@ -202,15 +211,6 @@ for area_lad in ['E08000025','E08000026']:
                 num_trips_gtgm += (distMx['num_trips'].sum())
                 num_trips_odt += (len(distMx) * len(timeDomain))
 
-                # Generate
-                # Output trips to CSV
-                temp_trips_file = 'tempdata/trips_to_route_{}_{}_{}.csv'.format(area_lad,p_type,stratum)
-                output_file = open(temp_trips_file, 'w')
-                writer = csv.writer(output_file)
-                writer.writerow(['oa_id','poi_id','trip_id','date','time','oa_lat','oa_lon','poi_lat','poi_lon'])
-
-                #Output trips dataset - output csv with following: 
-                trip_id = 0
                 #trip_date = study_date[0].strftime('%m/%d/%Y')
                 trip_date = study_date[0].strftime('%Y-%m-%d')
 
