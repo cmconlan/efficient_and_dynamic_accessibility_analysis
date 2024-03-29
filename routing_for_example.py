@@ -223,8 +223,8 @@ for stratum in ['wdam','wdpm','sat']:
     #Output trips dataset - output csv with following: 
     trip_id = 0
 
-    for i_oa, r_oa in oas_in_study[:10].iterrows():
-        for i_poi, r_poi in pois[:10].iterrows():
+    for i_oa, r_oa in oas_in_study.iterrows():
+        for i_poi, r_poi in pois.iterrows():
             for t in timeDomain:
                 row = [i_oa,r_poi['poi_id'],trip_id,trip_date,t,r_oa['centroid'][1], r_oa['centroid'][0],r_poi['geometry'][1], r_poi['geometry'][0]]
                 writer.writerow(row)
