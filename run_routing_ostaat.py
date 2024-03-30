@@ -139,7 +139,7 @@ for area_lad in ['E08000025','E08000026']:
             #Output trips dataset - output csv with following: 
             trip_id = 0
 
-            for it in range(5):
+            for it in range(1):
 
                 print()
                 print()
