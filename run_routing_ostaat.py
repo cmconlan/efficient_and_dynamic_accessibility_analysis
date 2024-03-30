@@ -241,10 +241,8 @@ for area_lad in ['E08000025','E08000026']:
                     temp_trips_file, 
                     'tempdata'
                 )
+                print(arg)
                 args.append(arg)
-
-            print('Distribution of trips over OTP instances:')
-            print(args)
 
             rows_complete = multiprocessing.Value('i', 0)
 
