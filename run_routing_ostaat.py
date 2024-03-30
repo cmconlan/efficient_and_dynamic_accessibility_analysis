@@ -243,6 +243,9 @@ for area_lad in ['E08000025','E08000026']:
                 )
                 args.append(arg)
 
+            print('Distribution of trips over OTP instances:')
+            print(arg)
+
             rows_complete = multiprocessing.Value('i', 0)
 
             t0_routing_cost = time.time()
