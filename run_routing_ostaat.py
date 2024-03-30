@@ -228,7 +228,9 @@ for area_lad in ['E08000025','E08000026']:
             t0 = time.time()
             # Cost trips on OTP using parallelisation
             num_trips = num_rows(temp_trips_file)
+            print('Num Trips : {}'.format(num_trips))
             step_size = get_step_size(num_trips, processes)
+            print('Step size : {}'.format(step_size))
 
             args = []
             for i in range(processes):
@@ -243,6 +245,8 @@ for area_lad in ['E08000025','E08000026']:
                 )
                 print(arg)
                 args.append(arg)
+
+            print('Num args : {}'.format(len(args)))
 
             rows_complete = multiprocessing.Value('i', 0)
 

@@ -160,6 +160,7 @@ def compute_trips(host_url: str, offset: int, limit: int, input_file: str, outpu
     of any other process.
     """
     process_id = os.getpid()
+    print('Next Process : {}'.format(process_id))
     output_file = os.path.join(output_dir, f'temp_{process_id}.csv')
     bad_rows = 0
     with open(input_file, 'r') as csv_file:
