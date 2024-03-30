@@ -244,7 +244,7 @@ for area_lad in ['E08000025','E08000026']:
                 args.append(arg)
 
             print('Distribution of trips over OTP instances:')
-            print(arg)
+            print(args)
 
             rows_complete = multiprocessing.Value('i', 0)
 
