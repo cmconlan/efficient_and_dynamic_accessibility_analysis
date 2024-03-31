@@ -163,15 +163,24 @@ def compute_trips(host_url: str, offset: int, limit: int, input_file: str, outpu
     print('Next Process : {}'.format(process_id))
     output_file = os.path.join(output_dir, f'temp_{process_id}.csv')
     bad_rows = 0
+
+    first_row_found = False
+
     with open(input_file, 'r') as csv_file:
         reader = csv.DictReader(csv_file)
         csv_section = get_csv_section(reader, offset, limit)
         firstRow = next(csv_section)
-        t0 = time.time()
-        first_response = get_otp_response(host_url, firstRow)
-        t1 = time.time()
-        first_response['queryTime'] = t1 - t0
-        headers = first_response.keys()
+        while first_row_found == False:
+            t0 = time.time()
+            first_response = get_otp_response(host_url, firstRow)
+            t1 = time.time()
+            if first_response:
+                response['queryTime'] = t1 - t0
+                headers = first_response.keys()
+                first_row_found = True
+            else:
+                bad_rows += 1
+                firstRow = next(csv_section)
         
         with open(output_file, 'a', newline='') as output_csv:
             writer = csv.DictWriter(output_csv, fieldnames=headers, delimiter=',')

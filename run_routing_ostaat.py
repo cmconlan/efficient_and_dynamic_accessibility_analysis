@@ -111,17 +111,18 @@ oaLatLon = oa_info[['oa_id','oa_lon','oa_lat']]
 
 
 experiment_meta_data = []
-for area_lad in ['E08000025','E08000026']:
+for stratum in ['wdam','sat','bh','wdpm']:
+    for area_lad in ['E08000025','E08000026']:
+        if area_lad == 'E08000025':
+            pois = pd.read_csv('data/POIs/pois_birm.csv', index_col=0)
+        else:
+            pois = pd.read_csv('data/POIs/pois_cov.csv', index_col=0)
+        trip_oas = oa_info[oa_info['oa_id'].isin(list(wm_oas[wm_oas['LAD11CD'] == area_lad]['OA11CD']))]
+        
+        for p_type in ['Hospital','School','GP Surgery','Vaccination Centre','Job Centre']:
 
-    if area_lad == 'E08000025':
-        pois = pd.read_csv('data/POIs/pois_birm.csv', index_col=0)
-    else:
-        pois = pd.read_csv('data/POIs/pois_cov.csv', index_col=0)
-    trip_oas = oa_info[oa_info['oa_id'].isin(list(wm_oas[wm_oas['LAD11CD'] == area_lad]['OA11CD']))]
-
-    for p_type in ['Hospital','School','GP Surgery','Vaccination Centre','Job Centre']:
-        trip_pois = pois[pois['type'] == p_type]
-        for stratum in ['wdam','wdpm','sat','bh']:
+            trip_pois = pois[pois['type'] == p_type]
+        
             num_trips_odt = 0
             num_trips_gtgm = 0
             trip_generation_cost = 0
