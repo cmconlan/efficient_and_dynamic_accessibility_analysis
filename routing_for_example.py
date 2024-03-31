@@ -119,7 +119,7 @@ for i,r in pharmacies.iterrows():
         poiid += 1
 
 pois = pd.DataFrame(pois_list)
-
+pois.to_csv('tempdata/example_pois.csv')
 
 #Get OAs
 oas = gpd.read_file('data/OAs/OA_2021_EW_BGC.shp').to_crs(4326)
