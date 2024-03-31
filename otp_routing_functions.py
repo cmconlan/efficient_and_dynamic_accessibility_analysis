@@ -175,7 +175,7 @@ def compute_trips(host_url: str, offset: int, limit: int, input_file: str, outpu
             first_response = get_otp_response(host_url, firstRow)
             t1 = time.time()
             if first_response:
-                response['queryTime'] = t1 - t0
+                first_response['queryTime'] = t1 - t0
                 headers = first_response.keys()
                 first_row_found = True
             else:
