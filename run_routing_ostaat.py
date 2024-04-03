@@ -129,7 +129,7 @@ for stratum in ['wdam','sat','bh','wdpm']:
             next_exp_meta = {}
             next_exp_meta['area'] = area_lad
             next_exp_meta['poi_type'] = p_type
-            next_exp_meta['poi_type'] = stratum
+            next_exp_meta['stratum'] = stratum
 
             # Generate
             # Output trips to CSV
@@ -290,6 +290,5 @@ for stratum in ['wdam','sat','bh','wdpm']:
             next_exp_meta['time_cost'] = (t1-t0)
             next_exp_meta['bad rows'] = bad_rows
             experiment_meta_data.append(next_exp_meta)
-
-        exp_meta_data_df = pd.DataFrame(experiment_meta_data)
-        exp_meta_data_df.to_csv('ostaat_trips_metadata.csv')
+            exp_meta_data_df = pd.DataFrame(experiment_meta_data)
+            exp_meta_data_df.to_csv('ostaat_trips_metadata.csv')
